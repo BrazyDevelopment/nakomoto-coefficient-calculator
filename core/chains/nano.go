@@ -133,13 +133,11 @@ func Nano() (int, error) {
 		accumulatedVotingPower.Add(&accumulatedVotingPower, &power)
 		if accumulatedVotingPower.Cmp(thresholdVotingPower) >= 0 {
 
-			log.Printf("Nakamoto Coefficient (67%%): %d", i+1) // Number of entities needed to meet threshold
+			log.Printf("Nakamoto Coefficient (67%%): %d", i+1)
 
 			return i + 1, nil
 		}
 	}
 
-	// In case we have all entities
-	// log.Printf("Nakamoto Coefficient (67%%): %d", len(votingPowers))
 	return len(votingPowers), nil
 }
